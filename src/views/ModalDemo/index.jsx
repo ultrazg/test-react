@@ -114,11 +114,9 @@ class Index extends Component {
           }}
         >
           <div className='charts'>
+            <h3>供应链关系图</h3>
             <EChartsReact
-              style={{
-                width:'100%',
-                height:'100%'
-              }}
+              className='echarts-layout'
               option={this.state.options}
             />
           </div>
