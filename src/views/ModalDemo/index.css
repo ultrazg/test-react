@@ -1,0 +1,11 @@
+.myModal {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  top: 0 !important;
+}
+.myModal .charts {
+  display: block;
+  height: calc(100vh - 103px);
+}
+/*# sourceMappingURL=index.css.map */

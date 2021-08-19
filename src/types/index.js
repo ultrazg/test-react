@@ -1,0 +1,1 @@
+export const scoreText = ['非常差','差','一般','好','非常好']
