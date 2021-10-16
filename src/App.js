@@ -9,12 +9,12 @@ function App() {
   return (
     <div>
       <h3>hello world</h3>
-      {/* <CountCom/>
+      <CountCom/>
       <StarList name='手抓饼' score={3}/>
       <StarList name='苹果汁' score={2}/>
-      <StarList name='烤鱿鱼' score={4}/> */}
-      {/*<EchartsDemo/>*/}
-      {/* <ModalDemo/> */}
+      <StarList name='烤鱿鱼' score={4}/>
+      <EchartsDemo/>
+       <ModalDemo/>
       <WordFun />
     </div>
   );
