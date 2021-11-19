@@ -5,6 +5,9 @@ import EchartsDemo from "./views/EchartsDemo";
 import ModalDemo from './views/ModalDemo';
 import WordFun from './components/wordFun';
 import RefDemo from './views/RefDemo';
+import AntdView from './views/AntdView';
+// import WaterMark from './views/WaterMark';
+import WaterMark from 'watermark-component-for-react';
 
 function App() {
     return (
@@ -17,7 +20,10 @@ function App() {
             {/*<EchartsDemo/>*/}
             {/*<ModalDemo/>*/}
             {/*<WordFun/>*/}
-            <RefDemo />
+            {/*<RefDemo />*/}
+            {/*<WaterMark content='测试水印'>*/}
+            <AntdView/>
+            {/*</WaterMark>*/}
         </div>
     );
 }
