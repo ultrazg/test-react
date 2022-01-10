@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
 
-class Index extends Component {
+export default class Index extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            content: this.props.content || '水印',
+            disabled: this.props.disabled || false,
+        }
+    }
+
+    static getDerivedStateFromProps(prevProp, prevState) {
+        return {disabled: prevProp.disabled}
+    }
+
     componentDidMount() {
         // 选择需要观察变动的节点
         const targetNode = document.getElementById('my-watermark');
@@ -13,12 +25,17 @@ class Index extends Component {
         const callback = function (mutationsList, observer) {
             // Use traditional 'for loops' for IE 11
             for (let mutation of mutationsList) {
-                if (mutation.type === 'childList') {
-                    console.log('A child node has been added or removed.');
-                } else if (mutation.type === 'attributes') {
-                    // console.log('The ' + mutation.attributeName + ' attribute was modified.');
-                    targetNode.style.backgroundImage = `url(${that.drawWaterMark('hello world')})`;
+                if (mutation.type === 'attributes') {
+                    if (that.state.disabled) {
+                        targetNode.style.backgroundImage = `url(${that.drawWaterMark(that.state.content)})`;
+                    }
                 }
+                // if (mutation.type === 'childList') {
+                //     console.log('A child node has been added or removed.');
+                // } else if (mutation.type === 'attributes') {
+                //     // console.log('The ' + mutation.attributeName + ' attribute was modified.');
+                //     targetNode.style.backgroundImage = `url(${that.drawWaterMark('hello world')})`;
+                // }
             }
         };
 
@@ -31,7 +48,13 @@ class Index extends Component {
 
     render() {
         return (
-            <div id="my-watermark" style={{backgroundImage: `url(${this.drawWaterMark('hello world')})`}}>
+            <div id="my-watermark"
+                 style={
+                     this.state.disabled
+                         ? {backgroundImage: `url(${this.drawWaterMark(this.state.content)})`}
+                         : {backgroundImage: `none`}
+                 }
+            >
                 {this.props.children}
             </div>
         );
@@ -52,7 +75,5 @@ class Index extends Component {
         return canvas.toDataURL('image/png');
     }
 }
-
-export default Index;
 
 

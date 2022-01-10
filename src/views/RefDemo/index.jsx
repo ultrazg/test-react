@@ -3,14 +3,21 @@ import React, {Component} from 'react';
 class Index extends Component {
     constructor(props) {
         super(props);
-        this.myRef = React.createRef();
+        // this.myRef = React.createRef();
     }
 
     render() {
         return (
-            <div ref={this.myRef}>
-                <p>ref demo</p>
-            </div>
+            <>
+                <div id={'test'} ref={c => this.myDiv = c}>
+                    <p>ref demo</p>
+                </div>
+                <button onClick={() => {
+                    console.log(this.myDiv.id);
+                }}>button
+                </button>
+            </>
+
         );
     }
 }
