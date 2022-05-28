@@ -1,5 +1,5 @@
 import React from 'react';
-// import CountCom from './components/Hook';
+import CountCom from './components/Hook';
 // import StarList from './components/starList';
 // import EchartsDemo from "./views/EchartsDemo";
 // import ModalDemo from './views/ModalDemo';
@@ -11,6 +11,7 @@ import React from 'react';
 // import Draggable from './views/Draggable';
 // import AntdTableDemo from './views/AntdTableDemo';
 import Searcher from './components/Searcher';
+import Friends from './components/Firends';
 
 const FORM_LIST = [
     {
@@ -18,7 +19,7 @@ const FORM_LIST = [
         type: 'Input',
         label: '关键词',
         width: 150,
-        placeholder: '请输入关键词',
+        placeholder: '关键词',
         attrs: {
             maxLength: 10,
             allowClear: true
@@ -70,7 +71,8 @@ function App() {
     return (
         <div>
             {/*<h3>hello world</h3>*/}
-            {/*<CountCom/>*/}
+            <CountCom/>
+            <Friends/>
             {/*<StarList name='手抓饼' score={3}/>*/}
             {/*<StarList name='苹果汁' score={2}/>*/}
             {/*<StarList name='烤鱿鱼' score={4}/>*/}
@@ -83,15 +85,15 @@ function App() {
             {/*</WaterMark>*/}
             {/*<Draggable/>*/}
             {/*<AntdTableDemo/>*/}
-            <Searcher
-                form={FORM_LIST}
-                onSearch={data => {
-                    console.log(data);
-                }}
-                onReset={data => {
-                    console.log(data);
-                }}
-            />
+            {/*<Searcher*/}
+            {/*    form={FORM_LIST}*/}
+            {/*    onSearch={data => {*/}
+            {/*        console.log(data);*/}
+            {/*    }}*/}
+            {/*    onReset={data => {*/}
+            {/*        console.log(data);*/}
+            {/*    }}*/}
+            {/*/>*/}
         </div>
     );
 }
