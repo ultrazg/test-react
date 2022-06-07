@@ -19,7 +19,7 @@ const FORM_LIST = [
         type: 'Input',
         label: '关键词',
         width: 150,
-        placeholder: '关键词',
+        placeholder: '请输入关键词',
         attrs: {
             maxLength: 10,
             allowClear: true
@@ -85,15 +85,15 @@ function App() {
             {/*</WaterMark>*/}
             {/*<Draggable/>*/}
             {/*<AntdTableDemo/>*/}
-            {/*<Searcher*/}
-            {/*    form={FORM_LIST}*/}
-            {/*    onSearch={data => {*/}
-            {/*        console.log(data);*/}
-            {/*    }}*/}
-            {/*    onReset={data => {*/}
-            {/*        console.log(data);*/}
-            {/*    }}*/}
-            {/*/>*/}
+            <Searcher
+                form={FORM_LIST}
+                onSearch={data => {
+                    console.log(data);
+                }}
+                onReset={data => {
+                    console.log(data);
+                }}
+            />
         </div>
     );
 }
