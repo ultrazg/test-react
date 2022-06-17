@@ -1,5 +1,5 @@
 import React from 'react';
-import CountCom from './components/Hook';
+// import CountCom from './components/Hook';
 // import StarList from './components/starList';
 // import EchartsDemo from "./views/EchartsDemo";
 // import ModalDemo from './views/ModalDemo';
@@ -10,8 +10,19 @@ import CountCom from './components/Hook';
 // import WaterMark from 'watermark-component-for-react';
 // import Draggable from './views/Draggable';
 // import AntdTableDemo from './views/AntdTableDemo';
-import Searcher from './components/Searcher';
-import Friends from './components/Firends';
+// import Searcher from './components/Searcher';
+// import Friends from './components/Firends';
+// import UtilsDemo from './views/utilsDemo'; // 测试工具类专用组件
+
+import MobxComC from './views/MobxComC'; // 测试 mobx 专用组件（class 组件）
+
+// mobx
+import {Provider} from 'mobx-react';
+import Store from './store';
+
+const store = {
+    store: new Store()
+};
 
 const FORM_LIST = [
     {
@@ -69,32 +80,37 @@ const FORM_LIST = [
 
 function App() {
     return (
-        <div>
-            {/*<h3>hello world</h3>*/}
-            <CountCom/>
-            <Friends/>
-            {/*<StarList name='手抓饼' score={3}/>*/}
-            {/*<StarList name='苹果汁' score={2}/>*/}
-            {/*<StarList name='烤鱿鱼' score={4}/>*/}
-            {/*<EchartsDemo/>*/}
-            {/*<ModalDemo/>*/}
-            {/*<WordFun/>*/}
-            {/*<RefDemo />*/}
-            {/*<WaterMark content='测试水印'>*/}
-            {/*<AntdView/>*/}
-            {/*</WaterMark>*/}
-            {/*<Draggable/>*/}
-            {/*<AntdTableDemo/>*/}
-            <Searcher
-                form={FORM_LIST}
-                onSearch={data => {
-                    console.log(data);
-                }}
-                onReset={data => {
-                    console.log(data);
-                }}
-            />
-        </div>
+        // 使用 Provider 包裹组件，把所有 store 注入到 Provider 中，让所有子组件都可以使用 @inject('store') 注入被观察者。
+        <Provider store={store}>
+            <div>
+                {/*<h3>hello world</h3>*/}
+                {/*<CountCom/>*/}
+                {/*<Friends/>*/}
+                {/*<StarList name='手抓饼' score={3}/>*/}
+                {/*<StarList name='苹果汁' score={2}/>*/}
+                {/*<StarList name='烤鱿鱼' score={4}/>*/}
+                {/*<EchartsDemo/>*/}
+                {/*<ModalDemo/>*/}
+                {/*<WordFun/>*/}
+                {/*<RefDemo />*/}
+                {/*<WaterMark content='测试水印'>*/}
+                {/*<AntdView/>*/}
+                {/*</WaterMark>*/}
+                {/*<Draggable/>*/}
+                {/*<AntdTableDemo/>*/}
+                {/*<Searcher*/}
+                {/*    form={FORM_LIST}*/}
+                {/*    onSearch={data => {*/}
+                {/*        console.log(data);*/}
+                {/*    }}*/}
+                {/*    onReset={data => {*/}
+                {/*        console.log(data);*/}
+                {/*    }}*/}
+                {/*/>*/}
+                {/*<UtilsDemo/>*/}
+                <MobxComC/>
+            </div>
+        </Provider>
     );
 }
 
